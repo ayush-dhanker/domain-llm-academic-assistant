@@ -179,3 +179,45 @@ cython_debug/
 #  refer to https://docs.cursor.com/context/ignore-files
 .cursorignore
 .cursorindexingignore
+
+
+# Virtual environments
+backend/venv/
+.venv/
+
+# Environment variables
+.env
+.env.*
+
+
+# Processed chunks (reproducible, large)
+data/processed/
+
+# Vector stores / indexes (always reproducible)
+data/vector_store/
+
+# Model artifacts
+*.bin
+*.pt
+*.ckpt
+*.safetensors
+*.pkl
+
+# =========================
+# Jupyter / Experiments
+# =========================
+.ipynb_checkpoints/
+
+# =========================
+# Frontend
+# =========================
+node_modules/
+dist/
+
+# =========================
+# OS / Editor
+# =========================
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

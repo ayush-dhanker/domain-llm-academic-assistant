@@ -1,2 +1,5 @@
 pypdf
 nltk
+
+sentence-transformers
+faiss-cpu
