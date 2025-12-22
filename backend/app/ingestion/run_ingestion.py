@@ -12,6 +12,8 @@ from app.ingestion.module_parser import (
 from app.ingestion.chunk_writer import write_chunks
 from app.utils import project_path
 
+MAX_WORDS = 400
+
 
 def run():
     all_chunks = []
@@ -28,6 +30,8 @@ def run():
         for chunk in chunk_spo_section(section):
             if not chunk["content"].strip():
                 continue
+            if len(chunk["content"].split()) > MAX_WORDS:  # ✅ FIX 3
+                continue
             all_chunks.append(chunk)
 
     # ---------- MODULE CATALOG ----------
@@ -41,6 +45,8 @@ def run():
     for module in modules:
         chunk = chunk_module(module)
         if not chunk["content"].strip():
+            continue
+        if len(chunk["content"].split()) > MAX_WORDS:      # ✅ FIX 3
             continue
         all_chunks.append(chunk)
 

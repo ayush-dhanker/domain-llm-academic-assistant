@@ -11,10 +11,6 @@ PARA_PATTERN = re.compile(
 
 
 def strip_spo_toc(text: str) -> str:
-    """
-    Removes table of contents by cutting everything
-    before the first real § section with body text.
-    """
     marker = "§ 1"
     idx = text.find(marker)
     if idx == -1:

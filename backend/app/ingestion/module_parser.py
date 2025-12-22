@@ -27,11 +27,9 @@ def parse_modules(text: str) -> List[Dict]:
     return modules
 
 
+# removes table
 def strip_module_toc(text: str) -> str:
-    """
-    Removes table of contents from module catalog.
-    Keeps only real module descriptions.
-    """
+
     marker = "Modulbezeichnung:"
     idx = text.find(marker)
     if idx == -1:
