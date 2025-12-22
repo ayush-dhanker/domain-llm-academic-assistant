@@ -191,10 +191,13 @@ backend/venv/
 
 
 # Processed chunks (reproducible, large)
-data/processed/
+data/processed/*
 
 # Vector stores / indexes (always reproducible)
-data/vector_store/
+data/vector_store/*
+
+!data/processed/.gitkeep
+!data/vector_store/.gitkeep
 
 # Model artifacts
 *.bin
