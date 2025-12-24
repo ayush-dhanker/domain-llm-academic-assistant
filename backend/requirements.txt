@@ -3,3 +3,5 @@ nltk
 
 sentence-transformers
 faiss-cpu
+
+requests

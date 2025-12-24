@@ -18,7 +18,7 @@ MAX_WORDS = 400
 def run():
     all_chunks = []
 
-    # ---------- SPO ----------
+    #SPO 
     spo_path = project_path(
         "data", "raw_pdfs", "SPO_Master_2021_04_08_Courtesy_Translation.pdf"
     )
@@ -30,11 +30,11 @@ def run():
         for chunk in chunk_spo_section(section):
             if not chunk["content"].strip():
                 continue
-            if len(chunk["content"].split()) > MAX_WORDS:  # ✅ FIX 3
+            if len(chunk["content"].split()) > MAX_WORDS:
                 continue
             all_chunks.append(chunk)
 
-    # ---------- MODULE CATALOG ----------
+    # MODULE CATALOG 
     module_path = project_path(
         "data", "raw_pdfs", "Modulkatalog_2024_Sommersemester.pdf"
     )
@@ -46,7 +46,7 @@ def run():
         chunk = chunk_module(module)
         if not chunk["content"].strip():
             continue
-        if len(chunk["content"].split()) > MAX_WORDS:      # ✅ FIX 3
+        if len(chunk["content"].split()) > MAX_WORDS:
             continue
         all_chunks.append(chunk)
 

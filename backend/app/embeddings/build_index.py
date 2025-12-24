@@ -25,7 +25,8 @@ def build():
     embeddings = embedder.embed_texts(texts)
 
     store = VectorStore(dim=embeddings.shape[1])
-    store.add(embeddings, metadatas)
+    # store.add(embeddings, metadatas)
+    store.add(embeddings, chunks)
 
     out_path = project_path("data", "vector_store", "faiss_store.pkl")
     out_path.parent.mkdir(parents=True, exist_ok=True)
