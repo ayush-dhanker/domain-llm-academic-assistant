@@ -224,3 +224,5 @@ dist/
 Thumbs.db
 .vscode/
 .idea/
+
+data/finetuning/regulations-lora-adapter/*.safetensors
