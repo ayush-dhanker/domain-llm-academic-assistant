@@ -1,0 +1,28 @@
+version: "3.9"
+
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile.backend
+    container_name: regs-backend
+    ports:
+      - "8000:8000"
+    environment:
+      - ADAPTER_PATH=/app/data/finetuning/regulations-lora-adapter
+      - LLM_DEVICE=cpu
+      - BASE_MODEL=TinyLlama/TinyLlama-1.1B-Chat-v1.0
+
+  frontend:
+    image: node:20-alpine
+    container_name: regs-frontend
+    working_dir: /frontend
+    volumes:
+      - ./frontend:/frontend
+    ports:
+      - "5173:5173"
+    environment:
+      - VITE_API_BASE=http://localhost:8000
+    command: sh -c "npm install && npm run dev -- --host 0.0.0.0"
+    depends_on:
+      - backend

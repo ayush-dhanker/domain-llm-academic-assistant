@@ -16,3 +16,11 @@ Vector store: FAISS pickle (data/vector_store/faiss_store.pkl)
 Retriever: sentence-transformer embeddings
 
 Response: answer + source metadata
+
+Run with Docker
+docker build -f Dockerfile.backend -t regs-rag-backend:latest .
+docker run -p 8000:8000 regs-rag-backend:latest
+
+Health checks
+curl http://127.0.0.1:8000/health
+curl http://127.0.0.1:8000/ready

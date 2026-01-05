@@ -26,10 +26,14 @@ app.add_middleware(
 
 @app.get("/health")
 def health():
-    # Also confirms model can be loaded
+    return {"status": "ok"}
+
+
+@app.get("/ready")
+def ready():
     try:
         _ = get_rag()
-        return {"status": "ok"}
+        return {"status": "ready"}
     except Exception as e:
         return {"status": "error", "detail": str(e)}
 
